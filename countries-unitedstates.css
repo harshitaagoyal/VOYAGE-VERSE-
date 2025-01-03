@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+header {
+    background: #0047ab;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.flag-img {
+    width: 100px;
+    height: auto;
+    margin: 1rem auto;
+}
+
+
+section {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #0047ab;
+    margin-bottom: 1rem;
+}
+
+
+.hotel {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.hotel img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.hotel h3 {
+    margin: 0;
+    color: #333;
+}
+
+.review {
+    font-style: italic;
+    color: #555;
+}
+
+
+.images-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.images-container h2 {
+    margin-bottom: 1rem;
+}
+
+.images img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    margin: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

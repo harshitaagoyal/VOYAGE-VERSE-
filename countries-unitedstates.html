@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United States</title>
+    <link rel="stylesheet" href="countries-unitedstates.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to the United States</h1>
+
+        </header>
+
+        <section class="info">
+            <h2>Historical and Cultural Highlights</h2>
+            <p>The United States is a vast and diverse nation, known for its innovation, cultural influence, and rich
+                history. From the founding of the country in 1776 to becoming a global powerhouse, the U.S. has a story
+                filled with triumphs and challenges.</p>
+            <p>
+                The country’s journey spans the American Revolution, the Civil Rights Movement, and technological
+                revolutions that have shaped the world. Its cultural influence is reflected in global music, movies,
+                and technology. National landmarks such as the Lincoln Memorial and the Library of Congress tell
+                stories of freedom, perseverance, and progress.
+            </p>
+        </section>
+
+        <section class="top-sights">
+            <h2>Top Sights You Should Not Miss</h2>
+            <ul>
+                <li>The Grand Canyon</li>
+                <li>The Statue of Liberty</li>
+                <li>Yellowstone National Park</li>
+                <li>Times Square</li>
+                <li>Golden Gate Bridge</li>
+                <li>Walt Disney World</li>
+            </ul>
+        </section>
+
+        <section class="hotels">
+            <h2>Hotel Suggestions</h2>
+            <div class="hotel">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/21/43/c5/hotel-exterior.jpg?w=700&h=-1&s=1"
+                    alt="Hotel 1">
+                <h3>The Ritz-Carlton, New York</h3>
+                <p>Located in Central Park, this hotel offers luxury and stunning city views.</p>
+                <p class="review">"Exceptional service and an unbeatable location!"</p>
+                <p class="review">"Luxury at its finest."</p>
+            </div>
+            <div class="hotel">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe46rE7aOtCazbRY0icMmSoIyonQrac16s0g&s"
+                    alt="Hotel 2">
+                <h3>Four Seasons, Las Vegas</h3>
+                <p>Experience the glamour and excitement of Las Vegas while staying in unmatched comfort.</p>
+                <p class="review">"Perfect blend of luxury and entertainment."</p>
+                <p class="review">"Loved the casino-free peaceful vibe."</p>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <h2>Visitor Reviews</h2>
+            <p>"The United States is a country of dreams. Every state has something unique to offer."</p>
+            <p>"Loved the diversity of people, places, and cultures."</p>
+            <p>"From bustling cities to serene national parks, it's a traveler’s paradise."</p>
+        </section>
+
+        <section class="images-container">
+            <h2>Images of the United States</h2>
+            <div id="images" class="images"></div>
+        </section>
+    </div>
+
+    <script>
+        const UNSPLASH_ACCESS_KEY = "z7ZWrFMcAW_DZIwnf2VdRIXkqm-xOfmmAWBpZZ--m3A";
+        const imagesContainer = document.getElementById("images");
+
+        fetch(`https://api.unsplash.com/search/photos?query=United States&client_id=${UNSPLASH_ACCESS_KEY}`)
+            .then(response => response.json())
+            .then(data => {
+                data.results.forEach(photo => {
+                    const img = document.createElement("img");
+                    img.src = photo.urls.small;
+                    img.alt = "United States";
+                    img.style.margin = "0.5rem";
+                    imagesContainer.appendChild(img);
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching images:", error);
+                imagesContainer.innerHTML = "<p>Unable to fetch images. Please try again later.</p>";
+            });
+    </script>
+
+</body>
+
+</html>

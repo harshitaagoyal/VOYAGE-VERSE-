@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antarctica</title>
+    <link rel="stylesheet" href="countries-unitedstates.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Antarctica</h1>
+        </header>
+
+        <section class="info">
+            <h2>Historical and Cultural Highlights</h2>
+            <p>Antarctica is Earth's southernmost continent, covered in ice and home to some of the most extreme
+                environments on the planet. Although largely uninhabited, it plays a vital role in scientific research
+                and environmental studies.</p>
+            <p>
+                Its discovery dates back to the early 19th century, and it has since been the subject of numerous
+                explorations. Today, Antarctica serves as a key location for international scientific research, focusing
+                on climate change, glaciology, and marine biology.
+            </p>
+        </section>
+
+        <section class="top-sights">
+            <h2>Top Sights You Should Not Miss</h2>
+            <ul>
+                <li>The Antarctic Peninsula</li>
+                <li>South Pole</li>
+                <li>Mount Vinson</li>
+                <li>Deception Island</li>
+                <li>Ross Ice Shelf</li>
+                <li>McMurdo Station</li>
+            </ul>
+        </section>
+
+        <section class="hotels">
+            <h2>Hotel Suggestions</h2>
+            <div class="hotel">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkS8sufTWAmUe2bZJmXoYBkYKEYgM6fjUTHQ&s"
+                    alt="Hotel 1">
+                <h3>Union Glacier Camp</h3>
+                <p>A luxurious base camp for travelers exploring Antarctica. Union Glacier offers comfortable
+                    accommodations amidst breathtaking icy landscapes.</p>
+                <p class="review">"An unforgettable experience in the heart of Antarctica."</p>
+                <p class="review">"A unique opportunity to explore the frozen wilderness in comfort."</p>
+            </div>
+            <div class="hotel">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGNGmhlwUuj8mYERVUFTCgaSl-2Rp4EInyMg&s"
+                    alt="Hotel 2">
+                <h3>Royal Society Range</h3>
+                <p>Offering an exclusive experience, this station allows guests to stay within an active research base,
+                    making it a one-of-a-kind hotel experience in Antarctica.</p>
+                <p class="review">"Amazing to stay within a real research station!"</p>
+                <p class="review">"Close to the most spectacular landscapes and wildlife."</p>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <h2>Visitor Reviews</h2>
+            <p>"Antarctica’s untouched beauty is like nothing else on Earth. A once-in-a-lifetime journey!"</p>
+            <p>"The sheer scale and quietness of Antarctica are awe-inspiring. It’s a place that stays with you
+                forever."</p>
+            <p>"A true adventure for those seeking to explore the most remote corners of the planet."</p>
+        </section>
+
+        <section class="images-container">
+            <h2>Images of Antarctica</h2>
+            <div id="images" class="images"></div>
+        </section>
+    </div>
+
+    <script>
+        const UNSPLASH_ACCESS_KEY = "z7ZWrFMcAW_DZIwnf2VdRIXkqm-xOfmmAWBpZZ--m3A";
+        const imagesContainer = document.getElementById("images");
+
+        fetch(`https://api.unsplash.com/search/photos?query=Antarctica&client_id=${UNSPLASH_ACCESS_KEY}`)
+            .then(response => response.json())
+            .then(data => {
+                data.results.forEach(photo => {
+                    const img = document.createElement("img");
+                    img.src = photo.urls.small;
+                    img.alt = "Antarctica";
+                    img.style.margin = "0.5rem";
+                    imagesContainer.appendChild(img);
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching images:", error);
+                imagesContainer.innerHTML = "<p>Unable to fetch images. Please try again later.</p>";
+            });
+    </script>
+
+</body>
+
+</html>

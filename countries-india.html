@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India</title>
+    <link rel="stylesheet" href="countries-unitedstates.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to India</h1>
+
+        </header>
+
+        <section class="info">
+            <h2>Historical and Cultural Highlights</h2>
+            <p>India is a land of diverse cultures, traditions, and rich history. From the ancient Indus Valley
+                Civilization to the Mughal and British empires, India's historical timeline is marked by innovation,
+                resilience, and grandeur. Its architectural marvels like the Taj Mahal, Jaipur's forts, and the ancient
+                caves of Ajanta and Ellora stand testament to its glorious past.</p>
+            <p>
+                Known for its contributions to philosophy, mathematics, and science, India is also the birthplace of
+                religions like Hinduism, Buddhism, and Sikhism. Its journey from colonial rule to a thriving democracy
+                is a testament to its spirit of perseverance and unity in diversity.
+            </p>
+        </section>
+
+        <section class="top-sights">
+            <h2>Top Sights You Should Not Miss</h2>
+            <ul>
+                <li>The Taj Mahal</li>
+                <li>Varanasi Ghats</li>
+                <li>Hawa Mahal</li>
+                <li>Kerala Backwaters</li>
+                <li>Golden Temple</li>
+                <li>Ranthambore National Park</li>
+            </ul>
+        </section>
+
+        <section class="hotels">
+            <h2>Hotel Suggestions</h2>
+            <div class="hotel">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOp0XTKt0BB7B1eqbD3DYBQAeaxBCI3E7yhw&s"
+                    alt="Hotel 1">
+                <h3>Hotel Taj Mahal Palace</h3>
+                <p>Located in Mumbai, this iconic hotel offers luxury and stunning sea views.</p>
+                <p class="review">"A beautiful experience, top-notch service!"</p>
+                <p class="review">"Loved the heritage vibes and food."</p>
+            </div>
+            <div class="hotel">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOh4HZNjTQ_x2Xw-8depgnfdT9wpmoeCQJWg&s"
+                    alt="Hotel 2">
+                <h3>Leela Palace, Udaipur</h3>
+                <p>A royal retreat overlooking Lake Pichola.</p>
+                <p class="review">"Truly felt like royalty."</p>
+                <p class="review">"The lake view was magical!"</p>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <h2>Visitor Reviews</h2>
+            <p>"India's diversity is mind-blowing. Every state feels like a new country!"</p>
+            <p>"I loved the warmth of the people and the incredible food."</p>
+            <p>"A journey full of colors, spirituality, and unforgettable experiences."</p>
+        </section>
+
+        <section class="images-container">
+            <h2>Images of India</h2>
+            <div id="images" class="images"></div>
+        </section>
+    </div>
+
+    <script>
+        const UNSPLASH_ACCESS_KEY = "z7ZWrFMcAW_DZIwnf2VdRIXkqm-xOfmmAWBpZZ--m3A";
+        const imagesContainer = document.getElementById("images");
+
+        fetch(`https://api.unsplash.com/search/photos?query=India&client_id=${UNSPLASH_ACCESS_KEY}`)
+            .then(response => response.json())
+            .then(data => {
+                data.results.forEach(photo => {
+                    const img = document.createElement("img");
+                    img.src = photo.urls.small;
+                    img.alt = "India";
+                    img.style.margin = "0.5rem";
+                    imagesContainer.appendChild(img);
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching images:", error);
+                imagesContainer.innerHTML = "<p>Unable to fetch images. Please try again later.</p>";
+            });
+    </script>
+
+</body>
+
+</html>
